@@ -1,0 +1,17 @@
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\bin\Debug\net7.0\POS.Repository.deps.json
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\bin\Debug\net7.0\POS.Repository.runtimeconfig.json
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\bin\Debug\net7.0\POS.Repository.dll
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\bin\Debug\net7.0\POS.Repository.pdb
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\obj\Debug\net7.0\POS.Repository.csproj.AssemblyReference.cache
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\obj\Debug\net7.0\POS.Repository.GeneratedMSBuildEditorConfig.editorconfig
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\obj\Debug\net7.0\POS.Repository.AssemblyInfoInputs.cache
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\obj\Debug\net7.0\POS.Repository.AssemblyInfo.cs
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\obj\Debug\net7.0\POS.Repository.csproj.CoreCompileInputs.cache
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\obj\Debug\net7.0\POS.Repository.dll
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\obj\Debug\net7.0\refint\POS.Repository.dll
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\obj\Debug\net7.0\POS.Repository.pdb
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\obj\Debug\net7.0\POS.Repository.genruntimeconfig.cache
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\obj\Debug\net7.0\ref\POS.Repository.dll
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\bin\Debug\net7.0\POS.ViewModel.dll
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\bin\Debug\net7.0\POS.ViewModel.pdb
+D:\Bootcampjava\dotnetEfCore\dotnet-POS-app\POS\POS.DataContact\obj\Debug\net7.0\POS.Repository.csproj.CopyComplete

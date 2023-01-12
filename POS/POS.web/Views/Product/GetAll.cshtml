@@ -1,0 +1,47 @@
+﻿@model IEnumerable<POS.Repository.Products>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+   <h2>Product List Data</h2>
+   <a asp-action="Add" class="btn btn-sm btn-primary">Add Products</a>
+   <table class="table table-responsive">
+       <thead>
+           <tr>
+               <th>ID</th>
+                <th>SupplierId</th>
+                <th>CategoryId</th>
+                <th>Quantity</th>
+                <th>UnitPrice</th>
+                <th>UnitStock</th>
+                <th>UnitOrder</th>
+                <th>Reorder</th>
+                <th>Discontinued</th>
+               <th>Action</th>
+           </tr>
+       </thead>
+       <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.SupplierId</td>
+                    <td>@item.CategoryId</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.UnitPrice</td>
+                    <td>@item.UnitStock</td>
+                    <td>@item.UnitOrder</td>
+                    <td>@item.Reorder</td>
+                    <td>@item.Discontinued</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-success">View</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+   </table>
+</div>

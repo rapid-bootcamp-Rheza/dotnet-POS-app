@@ -1,0 +1,83 @@
+﻿@model POS.ViewModel.ProductModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<div>
+    <h2>Add New Product</h2>
+    <form asp-controller="Product" asp-action="Save" method="post">
+        <div class="form-group">
+            <label asp-for="SupplierId"></label>
+            <select asp-for="SupplierId" class="form-control" >
+                <option>Pilih Supplier</option>
+                <option value="1">Supplier 1</option>
+                <option value="2">Supplier 2</option>
+                <option value="3">Supplier 3</option>
+            </select>
+            <span asp-validation-for="SupplierId" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryId"></label>
+            <select asp-for="CategoryId" class="form-control" >
+                <option>Pilih Category</option>
+                <option value="1">Category 1</option>
+                <option value="2">Category 2</option>
+                <option value="3">Category 3</option>
+            </select>
+            <span asp-validation-for="CategoryId" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Quantity"></label>
+            <input asp-for="Quantity" class="form-control" />
+            <span asp-validation-for="Quantity" class="text-danger" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="UnitPrice"></label>
+            <input asp-for="UnitPrice" class="form-control" />
+            <span asp-validation-for="UnitPrice" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="UnitStock"></label>
+            <input asp-for="UnitStock" class="form-control" />
+            <span asp-validation-for="UnitStock" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="UnitOrder"></label>
+            <input asp-for="UnitOrder" class="form-control" />
+            <span asp-validation-for="UnitOrder" class="text-danger" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Reorder"></label>
+            <input asp-for="Reorder" class="form-control" />
+            <span asp-validation-for="Reorder" class="text-danger" />
+        </div>
+        <label>Discontinued</label>
+        <div class="form-check">
+            <input asp-for="Discontinued" class="form-check-input" type="checkbox"  id="yes" value="True" />
+            <label asp-for="Discontinued"  for="yes"> Yes </label>
+            
+           
+        </div>
+        <div class="form-check">
+            <input asp-for="Discontinued" class="form-check-input" type="checkbox"  id="no" value="False" />
+            <label asp-for="Discontinued"  for="no"> No </label>
+            
+         </div>
+        @*<div class="form-group">
+            <label asp-for="Discontinued"></label>
+            <input asp-for="Discontinued" class="form-control" />
+        </div>*@
+        <div class="form-footer">
+            <button type="submit" class="btn btn-primary m-md-4">Save Category</button>
+        </div>
+    </form>
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

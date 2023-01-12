@@ -1,0 +1,49 @@
+﻿@model POS.ViewModel.ProductModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<div>
+    <h2>Detail Product</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <th>Supplier Id</th>
+            <td>@Model.SupplierId</td>
+        </tr>
+        <tr>
+            <th>Category Id</th>
+            <td>@Model.CategoryId</td>
+        </tr>
+        <tr>
+            <th>Quantity</th>
+            <td>@Model.Quantity</td>
+        </tr>
+        <tr>
+            <th>UnitPrice</th>
+            <td>@Model.UnitPrice</td>
+        </tr>
+        <tr>
+            <th>UnitStock</th>
+            <td>@Model.UnitStock</td>
+        </tr><tr>
+            <th>UnitOrder</th>
+            <td>@Model.UnitOrder</td>
+        </tr>
+        <tr>
+            <th>Reorder</th>
+            <td>@Model.Reorder</td>
+        </tr>
+        <tr>
+            <th>Discontinued</th>
+            <td>@Model.Discontinued</td>
+        </tr>
+    </table>
+
+</div>
