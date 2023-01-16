@@ -26,6 +26,12 @@ namespace POS.web.Controllers
         }
 
         [HttpGet]
+        public IActionResult AddModal()
+        {
+            return PartialView("_Add");
+        }
+
+        [HttpGet]
         public IActionResult Details(int? id)
         {
             var data = _service.ReadSupplier(id);

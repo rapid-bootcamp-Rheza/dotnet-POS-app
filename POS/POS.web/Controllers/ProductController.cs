@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using POS.Repository;
 using POS.Service;
 using POS.ViewModel;
@@ -7,10 +8,15 @@ namespace POS.web.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly ProductService _service;
+        //private readonly ProductService _service;
+        readonly ProductService _service;
+        readonly CategoryService _serviceCategory;
+        readonly SupplierService _serviceSupplier;
         public ProductController(ApplicationContext context)
         {
             _service = new ProductService(context);
+            _serviceCategory = new CategoryService(context);
+            _serviceSupplier = new SupplierService(context);
         }
 
         [HttpGet]
@@ -22,8 +28,20 @@ namespace POS.web.Controllers
         [HttpGet]
         public IActionResult Add()
         {
+            ViewBag.Categories = new SelectList(_serviceCategory.GetCategories(), "Id", "CategoryName");
+            ViewBag.Supplier = new SelectList(_serviceSupplier.GetSupplier(), "Id", "CompanyName");
             return View();
         }
+
+        [HttpGet]
+        public IActionResult AddModal()
+        {
+            ViewBag.Categories = new SelectList(_serviceCategory.GetCategories(), "Id", "CategoryName");
+            ViewBag.Supplier = new SelectList(_serviceSupplier.GetSupplier(), "Id", "CompanyName");
+
+            return PartialView("_Add");
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Save([Bind("SupplierId, CategoryId, Quantity, UnitPrice, UnitStock, UnitOrder, Reorder, Discontinued")] ProductModel request)
@@ -46,6 +64,9 @@ namespace POS.web.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            ViewBag.Categories = new SelectList(_serviceCategory.GetCategories(), "Id", "CategoryName");
+            ViewBag.Supplier = new SelectList(_serviceSupplier.GetSupplier(), "Id", "CompanyName");
+
             var data = _service.ReadProduct(id);
             return View(data);
         }

@@ -24,8 +24,9 @@
 
   <ItemGroup>
     <Folder Include="DataContext\" />
-    <Folder Include="Views\Employees\" />
-    <Folder Include="Views\Customer\" />
+    <Folder Include="Views\OrderDetails\" />
+    <Folder Include="Views\Order\" />
+    <Folder Include="Views\Shipper\" />
   </ItemGroup>
 
 </Project>
