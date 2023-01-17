@@ -44,7 +44,7 @@ namespace POS.web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Save([Bind("SupplierId, CategoryId, Quantity, UnitPrice, UnitStock, UnitOrder, Reorder, Discontinued")] ProductModel request)
+        public IActionResult Save([Bind("ProductName, SupplierId, CategoryId, Quantity, UnitPrice, UnitStock, UnitOrder, Reorder, Discontinued")] ProductModel request)
         {
             if (ModelState.IsValid)
             {
@@ -71,7 +71,7 @@ namespace POS.web.Controllers
             return View(data);
         }
         [HttpPost] 
-        public IActionResult Update([Bind("Id,SupplierId, CategoryId, Quantity, UnitPrice, UnitStock, UnitOrder, Reorder, Discontinued")] ProductModel request)
+        public IActionResult Update([Bind("Id,ProductName, SupplierId, CategoryId, Quantity, UnitPrice, UnitStock, UnitOrder, Reorder, Discontinued")] ProductModel request)
         {
             if (ModelState.IsValid)
             {

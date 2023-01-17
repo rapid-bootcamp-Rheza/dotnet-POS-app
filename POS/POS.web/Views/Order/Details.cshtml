@@ -1,0 +1,75 @@
+﻿@model POS.ViewModel.OrderModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<div>
+    <h2>Detail Order</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <th>Customer Id</th>
+            <td>@Model.CustomerId</td>
+        </tr>
+        <tr>
+            <th>EmployeeId</th>
+            <td>@Model.EmployeeId</td>
+        </tr>
+        <tr>
+            <th>ShipperId</th>
+            <td>@Model.ShipperId</td>
+        </tr>
+        <tr>
+            <th>OrderDate</th>
+            <td>@Model.OrderDate</td>
+        </tr>
+        <tr>
+            <th>RequiredDate</th>
+            <td>@Model.RequiredDate</td>
+        </tr>
+        <tr>
+            <th>ShippedDate</th>
+            <td>@Model.ShippedDate</td>
+        </tr>
+        <tr>
+            <th>ShipVia</th>
+            <td>@Model.ShipVia</td>
+        </tr>
+        <tr>
+            <th>Freight</th>
+            <td>@Model.Freight</td>
+        </tr>
+        <tr>
+            <th>ShipName</th>
+            <td>@Model.ShipName</td>
+        </tr>
+        <tr>
+            <th>ShipAddress</th>
+            <td>@Model.ShipAddress</td>
+        </tr>
+         <tr>
+            <th>ShipCity</th>
+            <td>@Model.ShipCity</td>
+        </tr>
+         <tr>
+            <th>ShipRegion</th>
+            <td>@Model.ShipRegion</td>
+        </tr>
+         <tr>
+            <th>ShipPostalCode</th>
+            <td>@Model.ShipPostalCode</td>
+        </tr>
+        <tr>
+            <th>Country</th>
+            <td>@Model.Country</td>
+        </tr>
+      
+    </table>
+
+</div>

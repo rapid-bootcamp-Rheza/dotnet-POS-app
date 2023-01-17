@@ -10,7 +10,10 @@ namespace POS.ViewModel
     public class ProductModel
     {
         public int Id { get; set; }
-        
+
+        [Required]
+        public String ProductName { get; set; }
+
         [Required]
         public int SupplierId { get; set; }
 

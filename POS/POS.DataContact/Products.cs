@@ -17,6 +17,10 @@ namespace POS.Repository
         public int Id { get; set; }
 
         [Required]
+        [Column("products_name")]
+        public String ProductName { get; set; }
+
+        [Required]
         [Column("supplier_id")]
         public int SupplierId { get; set; }
         public Supplier Supplier { get; set; }
@@ -60,6 +64,7 @@ namespace POS.Repository
         }
         public Products(POS.ViewModel.ProductModel model)
         {
+            ProductName = model.ProductName;
             SupplierId = model.SupplierId;
             CategoryId = model.CategoryId;
             Quantity = model.Quantity;

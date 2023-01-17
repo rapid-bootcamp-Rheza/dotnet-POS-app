@@ -1,0 +1,40 @@
+﻿@model POS.ViewModel.OrderDetailModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<div>
+    <h2>Detail Customer</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th>Id</th>
+            <td>@Model.Id</td>
+        </tr>
+        <tr>
+            <th>OrderId</th>
+            <td>@Model.OrderId</td>
+        </tr>
+        <tr>
+            <th>ProductId</th>
+            <td>@Model.ProductId</td>
+        </tr>
+        <tr>
+            <th>UnitPrice</th>
+            <td>@Model.UnitPrice</td>
+        </tr>
+        <tr>
+            <th>Quantity</th>
+            <td>@Model.Quantity</td>
+        </tr>
+        <tr>
+            <th>Discount</th>
+            <td>@Model.Discount</td>
+        </tr>
+      
+      
+    </table>
+
+</div>

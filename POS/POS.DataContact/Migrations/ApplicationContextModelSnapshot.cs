@@ -313,6 +313,11 @@ namespace POS.Repository.Migrations
                         .HasColumnType("tinyint(1)")
                         .HasColumnName("products_discontinued");
 
+                    b.Property<string>("ProductName")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("products_name");
+
                     b.Property<int>("Quantity")
                         .HasColumnType("int")
                         .HasColumnName("products_quantity");
@@ -353,8 +358,9 @@ namespace POS.Repository.Migrations
                         .HasColumnType("int")
                         .HasColumnName("id");
 
-                    b.Property<int>("CompanyName")
-                        .HasColumnType("int")
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasColumnType("longtext")
                         .HasColumnName("company_name");
 
                     b.Property<int>("Phone")
@@ -407,7 +413,7 @@ namespace POS.Repository.Migrations
                         .HasColumnType("int")
                         .HasColumnName("supplier_fax");
 
-                    b.Property<string>("Homepage")
+                    b.Property<string>("HomePage")
                         .IsRequired()
                         .HasColumnType("longtext")
                         .HasColumnName("supplier_homepage");

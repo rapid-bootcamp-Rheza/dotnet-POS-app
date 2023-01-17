@@ -1,4 +1,5 @@
-﻿using POS.Repository;
+﻿using Microsoft.EntityFrameworkCore;
+using POS.Repository;
 using POS.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace POS.Service
         {
             ProductModel result = new ProductModel();
             result.Id = entity.Id;
+            result.ProductName = entity.ProductName;
             result.SupplierId = entity.SupplierId;
             result.CategoryId= entity.CategoryId;
             result.Quantity= entity.Quantity;
@@ -27,6 +29,7 @@ namespace POS.Service
         }
         private void ModelToEntity(ProductModel model, Products entity)
         {
+            entity.ProductName = model.ProductName;
             entity.SupplierId = model.SupplierId;
             entity.CategoryId = model.CategoryId;
             entity.Quantity = model.Quantity;
@@ -45,7 +48,8 @@ namespace POS.Service
 
         public List<Products> GetProduct()
         {
-            return _context.productsEntities.ToList();
+
+            return _context.productsEntities.Include(a => a.Category).Include(b => b.Supplier).ToList();
         }
 
         public void AddProduct(Products newRequest)

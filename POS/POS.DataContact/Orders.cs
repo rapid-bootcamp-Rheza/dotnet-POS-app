@@ -64,5 +64,27 @@ namespace POS.Repository
         public String Country { get; set; }
 
         public ICollection<OrderDetails> OrderDetail { get; set; }
+
+        public Orders()
+        {
+
+        }
+        public Orders(POS.ViewModel.OrderModel model)
+        {
+            CustomerId = model.CustomerId;
+            EmployeeId = model.EmployeeId;
+            ShipperId = model.ShipperId;
+            OrderDate = model.OrderDate;
+            RequiredDate = model.RequiredDate;
+            ShippedDate = model.ShippedDate;
+            ShipVia = model.ShipVia;
+            Freight = model.Freight;
+            ShipName = model.ShipName;
+            ShipAddress = model.ShipAddress;
+            ShipCity = model.ShipCity;
+            ShipRegion = model.ShipRegion;
+            ShipPostalCode = model.ShipPostalCode;
+            Country = model.Country;
+        }
     }
 }

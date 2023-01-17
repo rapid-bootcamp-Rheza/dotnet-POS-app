@@ -1,0 +1,91 @@
+﻿@model IEnumerable<POS.Repository.Orders>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+   <h2>Order List Data</h2>
+   <a asp-action="Add" id="btn-add" class="btn btn-sm btn-primary">Add Order</a>
+   <table class="table table-responsive">
+       <thead>
+           <tr>
+               <th>ID</th>
+                <th>Customer</th>
+                <th>Employee</th>
+                <th>Shipper</th>
+                <th>OrderDate</th>
+                <th>RequiredDate</th>
+                <th>ShippedDate</th>
+                <th>ShipVia</th>
+                <th>Freight</th>
+                <th>ShipName</th>
+                <th>ShipAddress</th>
+                <th>ShipCity</th>
+                <th>ShipRegion</th>
+                <th>ShipPostalCode</th>
+                <th>Country</th>
+               
+               <th>Action</th>
+           </tr>
+       </thead>
+       <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Customer.CustomerName</td>
+                    <td>@item.Employee.FirstName</td>
+                    <td>@item.Shipper.CompanyName</td>
+                    <td>@item.OrderDate</td>
+                    <td>@item.RequiredDate</td>
+                    <td>@item.ShippedDate</td>
+                    <td>@item.ShipVia</td>
+                    <td>@item.Freight</td>
+                    <td>@item.ShipName</td>
+                    <td>@item.ShipAddress</td>
+                    <td>@item.ShipCity</td>
+                    <td>@item.ShipRegion</td>
+                    <td>@item.ShipPostalCode</td>
+                    <td>@item.Country</td>
+                    
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-success">View</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+   </table>
+</div>
+<div class="modal" id="my-modal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Order</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        $("#btn-add").on("click", function(e){
+            e.preventDefault();
+            $.ajax({
+                url:"AddModal",
+                type:"GET",
+                dataType:"html",
+                success:function(data){
+                 $("#my-modal").find(".modal-body").html(data);
+                 $("#my-modal").modal("show");
+                }
+            });
+        });
+    </script>
+}

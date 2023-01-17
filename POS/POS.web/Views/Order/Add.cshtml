@@ -1,0 +1,104 @@
+﻿@model POS.ViewModel.OrderModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+<div>
+    <h2>Add New Order</h2>
+    <form asp-controller="Order" asp-action="Save" method="post">
+        <div class="form-group">
+            <label asp-for="CustomerId"></label>
+            <select type="text" asp-for="CustomerId" asp-items="@ViewBag.Customer" class="form-control">
+                <option>Pilih Customer</option>
+
+            </select>
+            <span asp-validation-for="CustomerId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="EmployeeId"></label>
+            <select type="text" asp-for="EmployeeId" asp-items="@ViewBag.Employee" class="form-control">
+                <option>Pilih Employee</option>
+                
+            </select>
+            <span asp-validation-for="EmployeeId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ShipperId"></label>
+            <select type="text" asp-for="ShipperId" asp-items="@ViewBag.Shipper" class="form-control">
+                <option>Pilih Shipper</option>
+                
+            </select>
+            <span asp-validation-for="ShipperId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="OrderDate"></label>
+            <input asp-for="OrderDate" class="form-control"  type="date"/>
+            <span asp-validation-for="OrderDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="RequiredDate"></label>
+            <input asp-for="RequiredDate" class="form-control"  type="date"/>
+            <span asp-validation-for="RequiredDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ShippedDate"></label>
+            <input asp-for="ShippedDate" class="form-control" type="date" />
+            <span asp-validation-for="ShippedDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ShipVia"></label>
+            <input asp-for="ShipVia" class="form-control" />
+            <span asp-validation-for="ShipVia" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Freight"></label>
+            <input asp-for="Freight" class="form-control" />
+            <span asp-validation-for="Freight" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ShipName"></label>
+            <input asp-for="ShipName" class="form-control" />
+            <span asp-validation-for="ShipName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ShipAddress"></label>
+            <input asp-for="ShipAddress" class="form-control" />
+            <span asp-validation-for="ShipAddress" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ShipCity"></label>
+            <input asp-for="ShipCity" class="form-control" />
+            <span asp-validation-for="ShipCity" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ShipRegion"></label>
+            <input asp-for="ShipRegion" class="form-control" />
+            <span asp-validation-for="ShipRegion" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ShipPostalCode"></label>
+            <input asp-for="ShipPostalCode" class="form-control" />
+            <span asp-validation-for="ShipPostalCode" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Country"></label>
+            <input asp-for="Country" class="form-control" />
+            <span asp-validation-for="Country" class="text-danger"></span>
+        </div>
+       
+
+        <div class="form-footer">
+            <button type="submit" class="btn btn-primary m-md-4">Save Category</button>
+        </div>
+    </form>
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

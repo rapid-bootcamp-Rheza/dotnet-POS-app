@@ -15,10 +15,23 @@ namespace POS.Repository
         [Column("id")]
         public int Id { get; set; }
 
+        [Required]
         [Column("company_name")]
-        public int CompanyName { get; set; }
+        public String CompanyName { get; set; }
 
+        [Required]
         [Column("phone")]
         public int Phone { get; set; }
+
+        public Shippers()
+        {
+
+        }
+
+        public Shippers(POS.ViewModel.ShipperModel model)
+        {
+            CompanyName = model.CompanyName;
+            Phone = model.Phone;
+        }
     }
 }
