@@ -53,6 +53,11 @@ namespace POS.ViewModel
 
         [Required]
         public String Country { get; set; }
+
+       /* public CustomerModel Customer { get; set; }
+        public EmployeeModel Employee { get; set; }*/
+
+        public List<OrderDetailModel> OrderDetail { get; set; }
     
     }
 }

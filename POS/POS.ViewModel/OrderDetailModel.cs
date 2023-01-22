@@ -14,6 +14,10 @@ namespace POS.ViewModel
         [Required]
         public int OrderId { get; set; }
 
+        public string? ProductName { get; set; }
+
+        public string? CustomerName { get; set; }
+
         [Required]
         public int ProductId { get; set; }
 
@@ -23,7 +27,9 @@ namespace POS.ViewModel
         [Required]
         public int Quantity { get; set; }
 
+        public double SubTotal { get; set; }
+
         [Required]
-        public int Discount { get; set; }
+        public double Discount { get; set; }
     }
 }

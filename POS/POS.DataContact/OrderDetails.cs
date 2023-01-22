@@ -37,7 +37,7 @@ namespace POS.Repository
 
         [Required]
         [Column("discount")]
-        public int Discount { get; set; }
+        public double Discount { get; set; }
 
         public OrderDetails()
         {

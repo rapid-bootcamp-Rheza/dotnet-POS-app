@@ -8,10 +8,12 @@ namespace POS.web.Controllers
 {
     public class OrderController : Controller
     {
-         readonly OrderService _service;
-        readonly ShipperService _serviceShipper;
-        readonly CustomerService _serviceCustomer;
-        readonly EmployeeService _serviceEmployee;
+        private readonly OrderService _service;
+        private readonly ShipperService _serviceShipper;
+        private readonly CustomerService _serviceCustomer;
+        private readonly EmployeeService _serviceEmployee;
+        private readonly ProductService _serviceProduct;
+
 
         public OrderController(ApplicationContext context)
         {
@@ -19,6 +21,7 @@ namespace POS.web.Controllers
             _serviceCustomer = new CustomerService(context);
             _serviceShipper = new ShipperService(context);
             _serviceEmployee = new EmployeeService(context);
+            _serviceProduct = new ProductService(context);
         }
 
         [HttpGet]
@@ -34,22 +37,24 @@ namespace POS.web.Controllers
             ViewBag.Customer = new SelectList(_serviceCustomer.GetCustomer(), "Id", "CustomerName");
             ViewBag.Employee = new SelectList(_serviceEmployee.GetEmployee(), "Id", "FirstName");
             ViewBag.Shipper = new SelectList(_serviceShipper.GetShipper(), "Id", "CompanyName");
+            ViewBag.Product = new SelectList(_serviceProduct.GetProduct(), "Id", "ProductName");
             return View();
         }
 
-        [HttpGet]
+      /*  [HttpGet]
         public IActionResult AddModal()
         {
             ViewBag.Customer = new SelectList(_serviceCustomer.GetCustomer(), "Id", "CustomerName");
             ViewBag.Employee = new SelectList(_serviceEmployee.GetEmployee(), "Id", "FirstName");
             ViewBag.Shipper = new SelectList(_serviceShipper.GetShipper(), "Id", "CompanyName");
+            ViewBag.Product = new SelectList(_serviceProduct.GetProduct(), "Id", "ProductName");
             return PartialView("_Add");
-        }
+        }*/
 
         [HttpGet]
-        public IActionResult Details(int? id)
+        public IActionResult Detail(int? id)
         {
-            var data = _service.ReadOrder(id);
+            var data = _service.ReadOrderInvoice(id);
             return View(data);
         }
         [HttpGet]
@@ -57,6 +62,7 @@ namespace POS.web.Controllers
         {
             ViewBag.Customer = new SelectList(_serviceCustomer.GetCustomer(), "Id", "CustomerName");
             ViewBag.Employee = new SelectList(_serviceEmployee.GetEmployee(), "Id", "FirstName");
+            ViewBag.Product = new SelectList(_serviceProduct.GetProduct(), "Id", "ProductName");
             ViewBag.Shipper = new SelectList(_serviceShipper.GetShipper(), "Id", "CompanyName");
             var data = _service.ReadOrder(id);
             return View(data);
@@ -71,11 +77,11 @@ namespace POS.web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Save(
-            [Bind("CustomerId, EmployeeId, ShipperId, OrderDate, RequiredDate, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, Country")] OrderModel model)
+            [Bind("CustomerId, EmployeeId, ShipperId, OrderDate, RequiredDate, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, Country, OrderDetail")] OrderModel model)
         {
             if (ModelState.IsValid)
             {
-                _service.AddOrders(new Orders(model));
+                _service.AddOrders(model);
                 return Redirect("GetAll");
             }
 
@@ -84,7 +90,7 @@ namespace POS.web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update([Bind("Id,CustomerId, EmployeeId, ShipperId, OrderDate, RequiredDate, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, Country")] OrderModel model)
+        public IActionResult Update([Bind("Id,CustomerId, EmployeeId, ShipperId, OrderDate, RequiredDate, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, Country, OrderDetail")] OrderModel model)
         {
             if (ModelState.IsValid)
             {

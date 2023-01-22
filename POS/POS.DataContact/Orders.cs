@@ -63,13 +63,13 @@ namespace POS.Repository
         [Column("orders_ship_country")]
         public String Country { get; set; }
 
-        public ICollection<OrderDetails> OrderDetail { get; set; }
+        public List<OrderDetails> OrderDetail { get; set; }
 
         public Orders()
         {
 
         }
-        public Orders(POS.ViewModel.OrderModel model)
+       /* public Orders(POS.ViewModel.OrderModel model)
         {
             CustomerId = model.CustomerId;
             EmployeeId = model.EmployeeId;
@@ -85,6 +85,6 @@ namespace POS.Repository
             ShipRegion = model.ShipRegion;
             ShipPostalCode = model.ShipPostalCode;
             Country = model.Country;
-        }
+        }*/
     }
 }

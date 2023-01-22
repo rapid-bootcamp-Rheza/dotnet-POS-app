@@ -90,14 +90,75 @@
             <input asp-for="Country" class="form-control" />
             <span asp-validation-for="Country" class="text-danger"></span>
         </div>
-       
-    <div class="form-footer">
-        <button type="submit" class="btn btn-warning">Update</button>
-    </div>
+
+        <h3>
+            Order Detail
+            <a class="btn-add add-detail" data-added="0">
+                <i class="la la-plus la-lg">
+                    +
+
+                </i>
+            </a>
+        </h3>
+        <table class="table table-borderless" id="tblpost2">
+            <thead>
+                <tr>
+                    <th>Product Id</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Discount</th>
+                </tr>
+            </thead>
+            <tbody id="tbl_post_body2">
+                <tr id="re-0">
+                    <td><input asp-for="OrderDetail[0].ProductId" class="from-control" /></td>
+                    <td><input asp-for="OrderDetail[0].UnitPrice" class="from-control" /></td>
+                    <td><input asp-for="OrderDetail[0].Quantity" class="from-control" /></td>
+                    <td><input asp-for="OrderDetail[0].Discount" class="from-control" /></td>
+                    <td class="text-center"><a class="btn btn-vs delete-detail" edu-data-id="1"><i class="la la-trash la-lg text-danger"></i></a></td>
+                </tr>
+            </tbody>
+            <tbody id="Deail-2">
+            </tbody>
+        </table>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
     </form>
-</div>
-@section Scripts{
+
+    @*@section Scripts{
     @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
-}
+    }*@
+    @section Scripts
+        {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var j = 1;
+
+                //added class to inputs
+                $('a.add-detail').click(function () {
+                    $("#Detail-2").append('<tr><td><input id= "OrderDetail_' + j + '__ProductId" class = "form-control" type = "text" data-val="true" name="OrderDetail[' + j + '].ProductId" value=""/></td><td><input id="OrderDetail_' + j + '__UnitPrice" class="from-control" type="text" data-val="true" name="OrderDetail[' + j + '].UnitPrice" value="" /></td><td><input id="OrderDetail_' + j + '__Quantity" class="form-control" type="text" data-val="true" name = "OrderDetail[' + j + '].Quantity" value="" /></td><td><input id="OrderDetail_' + j + '__Discount" class="form-control" type="text" data-val="true" name="OrderDetail[' + j + '].Discount" value="" /></td><td class="text-center"><a class="btn btn-xs delete-detail" edu-data-id="1"><i class="la la-trash la-lg text-danger">-</i></a></td></tr>');
+                    j++;
+                });
+                $('#Detail-2').on.('click', '.delete-detail', function () {
+                    $(this).parent().remove();
+                    j--;
+                    resetValues();
+                });
+
+                function resetValues() {
+                    counter = 1;
+                    $('#Detail-2 tr').each(function () {
+                        $(this).find('ProductId').attr("OrderDetail[" + counter + "].ProductId");
+                        $(this).find('UnitPrice').attr("OrderDetail[" + counter + "].UnitPrice");
+                        $(this).find('Quantity').attr("OrderDetail[" + counter + "].Quantity");
+                        $(this).find('Discount').attr("OrderDetail[" + counter + "].Discount");
+                        conuter++;
+                    })
+                }
+            });
+        </script>
+    }
